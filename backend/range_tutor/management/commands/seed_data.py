@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand
 from range_tutor.models import Challenge, InitialDataPoint
+from django.db import connection
 
 
 class Command(BaseCommand):
@@ -8,15 +9,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write('Seeding database with challenges...')
 
-        # Clear existing data (optional - comment out to preserve data)
-        Challenge.objects.all().delete()
-        InitialDataPoint.objects.all().delete()
-
-        # Reset the auto-increment counter (SQLite specific)
-        from django.db import connection
         with connection.cursor() as cursor:
-            cursor.execute("DELETE FROM sqlite_sequence WHERE name='range_tutor_challenge';")
-            cursor.execute("DELETE FROM sqlite_sequence WHERE name='range_tutor_initialdatapoint';")
+            self.stdout.write('Clearing old data and resetting counters...')
+            cursor.execute("TRUNCATE TABLE range_tutor_challenge, range_tutor_initialdatapoint RESTART IDENTITY CASCADE;")
 
         # Challenge 1: Metro Systems - BETWEEN range
         challenge1 = Challenge.objects.create(
