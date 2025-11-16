@@ -1,0 +1,81 @@
+.chartWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.chart {
+  background: #fafbfc;
+  border-radius: 8px;
+}
+
+/* D3 Axis Styles */
+.chart :global(.x-axis) path,
+.chart :global(.y-axis) path {
+  stroke: #cbd5e0;
+  stroke-width: 1.5;
+}
+
+.chart :global(.x-axis) line,
+.chart :global(.y-axis) line {
+  stroke: #cbd5e0;
+  stroke-width: 1;
+}
+
+.chart :global(.x-axis) text,
+.chart :global(.y-axis) text {
+  fill: #4a5568;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.chart :global(.axis-label) {
+  fill: #2d3748;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Grid Styles */
+.chart :global(.grid) line {
+  stroke: #e2e8f0;
+  stroke-opacity: 0.8;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.chart :global(.grid) path {
+  stroke-width: 0;
+}
+
+/* Bubble Styles */
+.chart :global(.bubble) {
+  cursor: move;
+  transition: opacity 0.2s ease, stroke-width 0.2s ease, filter 0.2s ease;
+}
+
+.chart :global(.bubble:hover) {
+  opacity: 1;
+  stroke-width: 3;
+  filter: brightness(1.1);
+}
+
+.chart :global(.bubble.dragging) {
+  opacity: 1;
+  stroke-width: 3;
+  stroke: #2c5282;
+  filter: drop-shadow(0 4px 8px rgba(49, 130, 206, 0.4));
+}
+
+.chart :global(.bubble-label) {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  user-select: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .chartWrapper {
+    overflow-x: scroll;
+  }
+}

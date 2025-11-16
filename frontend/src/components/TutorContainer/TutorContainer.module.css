@@ -1,0 +1,329 @@
+.container {
+  padding: 20px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 100px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.backButton {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #2d3748;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+
+.backButton:hover {
+  background: #cbd5e0;
+  transform: translateX(-2px);
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.1rem;
+  color: #718096;
+}
+
+.error {
+  color: #e53e3e;
+  background: #fff5f5;
+  border-radius: 12px;
+  margin: 20px;
+  border: 1px solid #feb2b2;
+}
+
+.instructionPanel {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: #f7fafc;
+  color: #2d3748;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 165px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.challengeTitle {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.instructionText {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: #4a5568;
+}
+
+.hintButton {
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.hintButton:hover {
+  background: #2c5282;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.3);
+}
+
+.hintButton:active {
+  transform: translateY(0);
+}
+
+.hintContainer {
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.hint {
+  background: #ebf8ff;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  border-left: 3px solid #3182ce;
+  color: #2c5282;
+  animation: fadeInDown 0.3s ease;
+  line-height: 1.4;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hint strong {
+  color: #2b6cb0;
+}
+
+.chartContainer {
+  margin-bottom: 12px;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.controlPanel {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.button {
+  padding: 10px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  background: #3182ce;
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #2c5282;
+}
+
+.resetButton {
+  background: #718096;
+  color: white;
+}
+
+.resetButton:hover:not(:disabled) {
+  background: #4a5568;
+}
+
+.feedback {
+  padding: 16px 24px;
+  border-radius: 12px;
+  text-align: center;
+  animation: slideIn 0.3s ease;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedbackCorrect {
+  background: #f0fff4;
+  color: #22543d;
+  border-color: #9ae6b4;
+  box-shadow: 0 2px 8px rgba(72, 187, 120, 0.2);
+}
+
+.feedbackIncorrect {
+  background: #fff5f5;
+  color: #742a2a;
+  border-color: #fc8181;
+  box-shadow: 0 2px 8px rgba(245, 101, 101, 0.2);
+}
+
+.feedback h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.feedbackCorrect h3 {
+  color: #2f855a;
+}
+
+.feedbackIncorrect h3 {
+  color: #c53030;
+}
+
+.feedback p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .instructionPanel {
+  background: #2d3748;
+  color: #e2e8f0;
+  border-color: #4a5568;
+}
+
+body.dark-mode .challengeTitle {
+  color: #f7fafc;
+}
+
+body.dark-mode .instructionText {
+  color: #cbd5e0;
+}
+
+body.dark-mode .hintButton {
+  background: #3182ce;
+}
+
+body.dark-mode .hintButton:hover {
+  background: #2c5282;
+}
+
+body.dark-mode .hint {
+  background: #2c5282;
+  border-left-color: #63b3ed;
+  color: #bee3f8;
+}
+
+body.dark-mode .hint strong {
+  color: #90cdf4;
+}
+
+body.dark-mode .chartContainer {
+  background: #2d3748;
+  border-color: #4a5568;
+}
+
+body.dark-mode .error {
+  background: #742a2a;
+  color: #feb2b2;
+  border-color: #9b2c2c;
+}
+
+body.dark-mode .feedbackCorrect {
+  background: #2f855a;
+  color: #c6f6d5;
+  border-color: #38a169;
+}
+
+body.dark-mode .feedbackIncorrect {
+  background: #c53030;
+  color: #fed7d7;
+  border-color: #e53e3e;
+}
+
+body.dark-mode .feedbackCorrect h3 {
+  color: #f0fff4;
+}
+
+body.dark-mode .feedbackIncorrect h3 {
+  color: #fff5f5;
+}
+
+body.dark-mode .backButton {
+  background: #4a5568;
+  color: #e2e8f0;
+}
+
+body.dark-mode .backButton:hover {
+  background: #718096;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .controlPanel {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

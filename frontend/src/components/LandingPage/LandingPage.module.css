@@ -1,0 +1,326 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1rem;
+  color: #718096;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #718096;
+  font-weight: 400;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Concept Section */
+.conceptSection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #1a202c;
+  text-align: center;
+}
+
+.definition {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 16px;
+  color: #4a5568;
+}
+
+.definition strong {
+  color: #3182ce;
+  font-weight: 600;
+}
+
+.examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.exampleCard {
+  background: #f7fafc;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exampleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.exampleCard h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #2d3748;
+}
+
+.exampleCard p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #718096;
+}
+
+/* Progress Section */
+.progressSection {
+  text-align: center;
+}
+
+.progressSection h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #1a202c;
+}
+
+.progressBar {
+  width: 100%;
+  max-width: 500px;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  margin: 0 auto 8px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3182ce 0%, #2c5282 100%);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.progressText {
+  font-size: 0.95rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+/* Challenges Section */
+.challengesSection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #1a202c;
+  text-align: center;
+}
+
+.challengeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.challengeCard {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.challengeCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  border-color: #3182ce;
+}
+
+.challengeCard.completed {
+  border-color: #48bb78;
+  background: #f0fff4;
+}
+
+.challengeNumber {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.completedBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: #48bb78;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.challengeCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #1a202c;
+  font-weight: 700;
+}
+
+.challengeDescription {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #4a5568;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+.startButton {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.startButton:hover {
+  background: #2c5282;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(49, 130, 206, 0.3);
+}
+
+.startButton:active {
+  transform: translateY(0);
+}
+
+.challengeCard.completed .startButton {
+  background: #718096;
+}
+
+.challengeCard.completed .startButton:hover {
+  background: #4a5568;
+}
+
+/* Dark Mode */
+body.dark-mode .hero .title {
+  background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark-mode .subtitle,
+body.dark-mode .definition,
+body.dark-mode .progressText {
+  color: #cbd5e0;
+}
+
+body.dark-mode .conceptSection h2,
+body.dark-mode .progressSection h2,
+body.dark-mode .challengesSection h2 {
+  color: #f7fafc;
+}
+
+body.dark-mode .exampleCard {
+  background: #1a202c;
+  border-color: #2d3748;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .exampleCard:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  border-color: #4a5568;
+}
+
+body.dark-mode .exampleCard h3 {
+  color: #e2e8f0;
+}
+
+body.dark-mode .exampleCard p {
+  color: #a0aec0;
+}
+
+body.dark-mode .progressBar {
+  background: #2d3748;
+}
+
+body.dark-mode .progressFill {
+  background: linear-gradient(90deg, #4299e1 0%, #3182ce 100%);
+}
+
+body.dark-mode .challengeCard {
+  background: #1a202c;
+  border-color: #2d3748;
+}
+
+body.dark-mode .challengeCard:hover {
+  border-color: #4299e1;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .challengeCard h3 {
+  color: #f7fafc;
+}
+
+body.dark-mode .challengeDescription,
+body.dark-mode .challengeNumber {
+  color: #a0aec0;
+}
+
+body.dark-mode .challengeCard.completed {
+  background: #1c4532;
+  border-color: #38a169;
+}
+
+body.dark-mode .challengeCard.completed:hover {
+  border-color: #48bb78;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .examples {
+    grid-template-columns: 1fr;
+  }
+
+  .challengeGrid {
+    grid-template-columns: 1fr;
+  }
+}
