@@ -9,9 +9,17 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write('Seeding database with challenges...')
 
-        with connection.cursor() as cursor:
-            self.stdout.write('Clearing old data and resetting counters...')
-            cursor.execute("TRUNCATE TABLE range_tutor_challenge, range_tutor_initialdatapoint RESTART IDENTITY CASCADE;")
+        # Clear existing data (database-agnostic way)
+        self.stdout.write('Clearing old data...')
+        Challenge.objects.all().delete()
+        InitialDataPoint.objects.all().delete()
+
+        # Reset auto-increment counters (PostgreSQL-specific, safe to fail on SQLite)
+        if connection.vendor == 'postgresql':
+            with connection.cursor() as cursor:
+                self.stdout.write('Resetting PostgreSQL sequences...')
+                cursor.execute("ALTER SEQUENCE range_tutor_challenge_id_seq RESTART WITH 1;")
+                cursor.execute("ALTER SEQUENCE range_tutor_initialdatapoint_id_seq RESTART WITH 1;")
 
         # Challenge 1: Metro Systems - BETWEEN range
         challenge1 = Challenge.objects.create(
