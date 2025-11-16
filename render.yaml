@@ -27,7 +27,7 @@ services:
   - type: web
     name: range-tutor-frontend
     env: static
-    region: oregon
+    # region: oregon
     buildCommand: "npm install && npm run build"
     staticPublishPath: ./build
     envVars:
